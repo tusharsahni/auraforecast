@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .weather-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Clear Sky Background -->
+    <div class="weather-bg bg-cover bg-center bg-no-repeat"
+         style="background-image: url('clear.jpg')"></div>
+
+    <!-- Cloudy Background -->
+    <div class="weather-bg bg-cover bg-center bg-no-repeat hidden"
+         style="background-image: url('cloudy.jpg')"></div>
+
+    <!-- Rainy Background -->
+    <div class="weather-bg bg-cover bg-center bg-no-repeat hidden"
+         style="background-image: url('rainy.jpg')"></div>
+
+    <!-- Snowy Background -->
+    <div class="weather-bg bg-cover bg-center bg-no-repeat hidden"
+         style="background-image: url('snowy.jpg')"></div>
+
+    <!-- Container for content -->
+    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-20 relative z-10">
+        <h1 class="text-center text-3xl font-bold mb-4">Weather App</h1>
+
+        <!-- Weather Input Section -->
+        <div class="mb-4">
+            <input type="text" id="cityInput" class="w-full p-3 border rounded-lg" placeholder="Enter city name">
+            <button onclick="getWeather()" class="w-full mt-2 bg-blue-500 text-white rounded-lg px-4 py-2">Get Weather</button>
+        </div>
+
+        <!-- Weather Result Section -->
+        <div id="weatherResult" class="result"></div>
+
+        <!-- Geocode Input Section -->
+        <div class="mt-4">
+            <input type="text" id="locationInput" class="w-full p-3 border rounded-lg" placeholder="Enter location">
+            <button onclick="getGeocode()" class="w-full mt-2 bg-blue-500 text-white rounded-lg px-4 py-2">Get Geocode</button>
+        </div>
+
+        <!-- Geocode Result Section -->
+        <div id="geocodeResult" class="result"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Example function to change background based on weather condition
+        function changeBackground(description) {
+            const weatherBgElements = document.querySelectorAll('.weather-bg');
+            weatherBgElements.forEach(bg => bg.classList.add('hidden'));
+
+            switch (description.toLowerCase()) {
+                case 'clear sky':
+                    document.querySelector('.bg-cover.bg-center.bg-no-repeat[style*="clear.jpg"]').classList.remove('hidden');
+                    break;
+                case 'few clouds':
+                case 'scattered clouds':
+                case 'broken clouds':
+                case 'overcast clouds':
+                    document.querySelector('.bg-cover.bg-center.bg-no-repeat[style*="cloudy.jpg"]').classList.remove('hidden');
+                    break;
+                case 'shower rain':
+                case 'rain':
+                case 'thunderstorm':
+                    document.querySelector('.bg-cover.bg-center.bg-no-repeat[style*="rainy.jpg"]').classList.remove('hidden');
+                    break;
+                case 'snow':
+                    document.querySelector('.bg-cover.bg-center.bg-no-repeat[style*="snowy.jpg"]').classList.remove('hidden');
+                    break;
+                default:
+                    // Handle custom or unknown weather conditions
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
