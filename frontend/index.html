@@ -20,6 +20,18 @@
 
 <body class="bg-gray-100">
 
+    <!-- Navigation Bar -->
+    <nav class="bg-purple-200 p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center ">
+            <h1 class="text-black text-2xl font-bold">AuraForecast</h1>
+            <ul class="flex space-x-4 text-black">
+                <li><a href="#" class="hover:text-gray-800">Home</a></li>
+                <li><a href="#" class="hover:text-gray-800">About</a></li>
+                <li><a href="#" class="hover:text-gray-800">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Clear Sky Background -->
     <div class="weather-bg bg-cover bg-center bg-no-repeat"
          style="background-image: url('clear.jpg')"></div>
@@ -36,14 +48,15 @@
     <div class="weather-bg bg-cover bg-center bg-no-repeat hidden"
          style="background-image: url('snowy.jpg')"></div>
 
-    <!-- Container for content -->
-    <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg mt-20 relative z-10">
-        <h1 class="text-center text-3xl font-bold mb-4">Weather App</h1>
+    <!-- Main Content Container -->
+    <div class="container mx-auto p-6 bg-transparent shadow-lg rounded-lg mt-20 relative z-10 max-w-lg">
+
+        <h2 class="text-center text-xl font-bold mb-4">Current Weather</h2>
 
         <!-- Weather Input Section -->
         <div class="mb-4">
             <input type="text" id="cityInput" class="w-full p-3 border rounded-lg" placeholder="Enter city name">
-            <button onclick="getWeather()" class="w-full mt-2 bg-blue-500 text-white rounded-lg px-4 py-2">Get Weather</button>
+            <button onclick="getWeather()" class="w-full mt-2 bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 transition duration-300">Get Weather</button>
         </div>
 
         <!-- Weather Result Section -->
@@ -52,11 +65,12 @@
         <!-- Geocode Input Section -->
         <div class="mt-4">
             <input type="text" id="locationInput" class="w-full p-3 border rounded-lg" placeholder="Enter location">
-            <button onclick="getGeocode()" class="w-full mt-2 bg-blue-500 text-white rounded-lg px-4 py-2">Get Geocode</button>
+            <button onclick="getGeocode()" class="w-full mt-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg px-4 py-2 transition duration-300">Get Geocode</button>
         </div>
 
         <!-- Geocode Result Section -->
         <div id="geocodeResult" class="result"></div>
+
     </div>
 
     <script src="scripts.js"></script>
