@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraForecast</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="./images/logo.png" alt="logo" width="364" height="58">
+            </a>
+        </div>
+
+        <div class="search-view" data-search-view>
+            <div class="search-wrapper">
+                <input type="search" name="search" placeholder="Search city..." autocomplete="off" class="search-field" data-search-field>
+                <span class="m-icon">Search</span>
+                <button class="icon-btn leading-icon has-state" aria-label="close search" data-search-toggler>
+                    <span class="m-icon">arrow-back</span>
+                </button>
+            </div>
+
+            <div class="search-result" data-search-result>
+                <ul class="view-list" data-search-list>
+                    <li class="view-item">
+                        <span class="m-icon">location_on</span>
+                        <div>
+                            <p class="item-title">London</p>
+                            <p class="label-2 item-subtitle">State of London</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </header>
+</body>
+</html>
